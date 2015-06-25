@@ -1,0 +1,4 @@
+ghangout_controller:
+    resource: "@CPASimUSanteGhangoutBundle/Controller/GhangoutController.php"
+    type: annotation
+    prefix: /

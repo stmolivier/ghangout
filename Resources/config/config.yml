@@ -1,0 +1,7 @@
+plugin:
+    has_options: false
+    resources:
+        -
+            class: CPASimUSante\GhangoutBundle\Entity\hangout
+            name: cpasimusante_hangout
+            is_exportable: false

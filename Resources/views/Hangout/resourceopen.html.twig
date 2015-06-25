@@ -12,9 +12,12 @@
         <h3 class="panel-title">{{ 'cpasimusante_ghangout'|trans({}, 'resource') }} : {{ node.getName() }}</h3>
     </div>
     <div class="panel-body">
-        <p>URL : {{ entity.url }}</p>
-        {% include 'CPASimUSanteGhangoutBundle:Hangout:viewhangout.html.twig' %}
-        <p>User : {{ userId }}</p>
+
+        <p>URL : {{ entity.url }} <br>User : {{ userId }}</p>
+
+        <iframe src ="{{ path ("view_hangout", {'node': node.getId()}) }}" width="80%" height="400" frameborder="0" scrolling="auto"></iframe>
+
+
     </div>
     <div class="panel-footer">
         {# BEGIN back to resource list #}

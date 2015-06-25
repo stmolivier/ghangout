@@ -7,6 +7,7 @@ use JMS\DiExtraBundle\Annotation as DI;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 
 use Claroline\CoreBundle\Library\Resource\ResourceCollection;
+use Claroline\CoreBundle\Entity\Resource\ResourceNode;
 
 use CPASimUSante\GhangoutBundle\Manager\GhangoutManager;
 
@@ -88,10 +89,25 @@ class GhangoutController extends Controller
             new HangoutType(),
             $resourceconfig
         );
-
         return array(
             'form' => $form->createView(),
             'node' => $node
         );
+    }
+
+    /**
+     * Display the Hangout iframe
+     */
+    /**
+     * @EXT\Route(
+     *     "/hangout/{node}",
+     *     name="view_hangout",
+     *     options={"expose"=true}
+     * )
+     * @EXT\Template("CPASimUSanteGhangoutBundle:Hangout:viewhangout.html.twig")
+     */
+    public function iframeHangout(ResourceNode $node)
+    {
+        return array();
     }
 }

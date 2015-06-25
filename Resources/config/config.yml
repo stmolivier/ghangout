@@ -1,7 +1,6 @@
 plugin:
-    has_options: false
+    has_options: true
     resources:
-        -
-            class: CPASimUSante\GhangoutBundle\Entity\hangout
-            name: cpasimusante_hangout
-            is_exportable: false
+        - class: CPASimUSante\GhangoutBundle\Entity\Hangout
+          name: cpasimusante_hangout
+          is_exportable: false

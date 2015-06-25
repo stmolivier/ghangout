@@ -1,1 +1,4 @@
 cpasimusante_hangout: Hangout
+
+#Entity fields
+url: "URL du Hangout"

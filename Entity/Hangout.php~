@@ -25,28 +25,4 @@ class Hangout extends AbstractResource
      * @ORM\Column(name="hangout_url")
      */
     protected $url = 'https://plus.google.com/hangouts/_/hangouthash';
-
-    /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Hangout
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
 }

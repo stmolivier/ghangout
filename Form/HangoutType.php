@@ -5,6 +5,7 @@ namespace CPASimUSante\GhangoutBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class HangoutType extends AbstractType
 {
@@ -14,8 +15,24 @@ class HangoutType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('url')
+        $builder->add(
+            'name',
+            'text',
+            array(
+                'required' => true,
+                'label' => 'name',
+                'constraints' => new Assert\NotBlank()
+            )
+            )
+            ->add('url', 'text',
+            array(
+                'required' => true,
+                'constraints' => new Assert\NotBlank(),
+                'attr' => [
+                    'placeholder' => 'https://plus.google.com/hangouts/_/hangouthash'
+                ]
+            )
+            )
             //->add('resourceNode')
         ;
     }

@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Claroline\CoreBundle\Entity\Resource\AbstractResource;
 
 /**
- * @ORM\Table(name="cpasimusante__hangout")
+ * @ORM\Table(name="cpasimusante_hangout")
  * @ORM\Entity(repositoryClass="CPASimUSante\GhangoutBundle\Repository\HangoutRepository")
  */
 class Hangout extends AbstractResource
@@ -24,7 +24,7 @@ class Hangout extends AbstractResource
     /**
      * @ORM\Column(name="hangout_url")
      */
-    protected $url = 'https://plus.google.com/hangouts/_/hangouthash';
+    protected $url;
 
     /**
      * Set url

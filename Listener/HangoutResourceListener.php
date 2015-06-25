@@ -4,6 +4,8 @@ namespace CPASimUSante\GhangoutBundle\Listener;
 
 use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 use Claroline\CoreBundle\Event\CopyResourceEvent;
 use Claroline\CoreBundle\Event\CreateFormResourceEvent;
 use Claroline\CoreBundle\Event\CreateResourceEvent;
@@ -64,11 +66,15 @@ class HangoutResourceListener
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $published = $form->get('published')->getData();
-            $event->setPublished($published);
-            $event->setResources(array($form->getData()));
-            $event->stopPropagation();
+            $em = $this->container->get('doctrine.orm.entity_manager');
 
+            $resource = $form->getData();
+
+            $em->persist($resource);
+
+            $event->setResources(array($resource));
+            $event->stopPropagation();
+            //exit the modal
             return;
         }
 
@@ -124,7 +130,14 @@ class HangoutResourceListener
      */
     public function onOpen(OpenResourceEvent $event)
     {
-        $response = null;
+        //Redirection to the controller.
+        $route = $this->container
+            ->get('router')
+            ->generate('cpasimusante_ghangout_resource_open',
+                array(
+                    'resourceId' => $event->getResource()->getId()
+                ));
+        $response = new RedirectResponse($route);
         $event->setResponse($response);
         $event->stopPropagation();
     }

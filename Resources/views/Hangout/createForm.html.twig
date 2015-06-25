@@ -10,7 +10,7 @@
             <h4 class="modal-title">{{ 'create_resource' | trans({}, 'platform') }} ({{ resourceType | trans({}, 'resource') }})</h4>
         </div>
         <div class='modal-body'>
-            {{ form_widget(form) }}
+            {{ form_row(form.url) }}
             {{ form_rest(form) }}
         </div>
         <div class="modal-footer">

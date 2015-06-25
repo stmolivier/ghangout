@@ -1,6 +1,6 @@
 <?php
 
-namespace Claroline\CoreBundle\Repository;
+namespace CPASimUSante\GhangoutBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use CPASimUSante\GhangoutBundle\Entity\Hangout;
